@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melere</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<header class="container-fluid">
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Buscar artículos...">
+        <button onclick="buscarArticulos()">Buscar</button>
+    </div>
+    <a href="./index.html" class="logo"><img src="./assets/melere.webp" alt="Logo" width="179"></a>
+    <div class="cart-container">
+        <a href="./pages/carrito.html" id="ver-carrito-btn"><img src="./assets/bolsa.webp" alt="Carrito" width="35"></a>
+    </div>
+</header>
+<body>
+    <div class="button-container">
+        <button onclick="location.href='./pages/remeras.html'">Remeras</button>
+        <button onclick="location.href='./pages/abrigos.html'">Abrigos</button>
+        <button onclick="location.href='./pages/accesorios.html'">Accesorios</button>
+        <button onclick="location.href='./pages/nosotros.html'">Nosotros</button>
+        <button onclick="location.href='./pages/local.html'">Local</button>
+    </div>
+    <div id="contenedor-articulos"></div>
+    <script src="./main.js"></script>
+</body>
+</html>

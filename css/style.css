@@ -1,0 +1,213 @@
+style {
+    @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap');
+}
+
+body {
+    background-color: #1c1c1c;
+    text-align: center;
+    align-items: center;
+}
+#contenedor-articulos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #1c1c1c;
+    border: 1px solid #ddd;
+    color: #d9d9d9;
+    border-radius: 10px;
+    font-family: "LibreFranklin", sans-serif;
+}
+
+.articulo {
+    border: 1px solid #1c1c1c;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px;
+    width: calc(33% - 20px);
+    box-shadow: 0 4px 8px #d9d9d9;
+    background-color: #1c1c1c;
+    color: #d9d9d9;
+    text-align: center;
+    font-family: "LibreFranklin", sans-serif;
+}
+
+.articulo img {
+    max-width: 300px; 
+    height: auto;
+    transition: transform 0.3s ease; 
+}
+
+.articulo img:hover {
+    transform: scale(1.2); 
+}
+
+.articulo button {
+    background-color: #d9d9d9;
+    color: #1c1c1c;
+    border: none;
+    padding: 5px 10px; 
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.articulo button:hover {
+    background-color: #ccc; 
+}
+
+.articulo {
+    margin-bottom: 20px; 
+
+}
+.articulo img { 
+    max-width: 200px; 
+}
+
+.tallas {
+    margin-top: 10px;
+}
+
+.talla-btn {
+    background-color: #6c0ea6;
+    color: #d9d9d9;
+    border: none;
+    padding: 5px 10px; 
+    margin: 2px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px; 
+}
+
+.talla-btn:hover {
+    background-color: #6c0ea6; 
+}
+
+#ver-carrito-btn {
+    margin: 10px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.button-container {
+    display: flex;
+    gap: 10px; /* Espacio entre los botones */
+    justify-content: center; /* Centrar los botones horizontalmente */
+    margin-top: 20px; /* Espacio superior */
+}
+
+.button-container button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #6c0ea6;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button-container button:hover {
+    background-color: #5a0a91; /* Color de fondo al pasar el mouse */
+}
+.search-container {
+    text-align: center; 
+    margin-top: 20px; 
+}
+.search-container input[type="text"] {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.search-container button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #6c0ea6;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.search-container button:hover {
+    background-color: #6c0ea6;
+}
+.articulo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.articulo img {
+    max-width: 100px;
+    height: auto;
+}
+
+header {
+    padding: 10px 20px; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative; 
+}
+
+.search-container {
+    position: absolute;
+    left: 20px; 
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
+
+.search-container input[type="text"] {
+    padding: 5px; /* Reducido padding para hacer el campo de texto más pequeño */
+    width: 200px; /* Reducido ancho del campo de texto */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-container button {
+    padding: 5px 10px; /* Reducido padding para hacer el botón más pequeño */
+    border: none;
+    background-color: #6c0ea6;
+    color: white;
+    font-size: 14px; /* Tamaño de fuente más pequeño */
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-container button:hover {
+    background-color: #5a0a91; /* Color de fondo en hover para mayor contraste */
+}
+
+.logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.cart-container {
+    position: absolute;
+    right: 20px; 
+}
+
+.cart-container img {
+    vertical-align: middle;
+}
+
+.articulo .tallas .talla-btn {
+    background-color: #6c0ea6; 
+    color: white; 
+    border: none;
+    padding: 5px 10px;
+    margin: 2px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px; 
+}
+
+.articulo .tallas .talla-btn:hover {
+    background-color: #5a0a91; 
+}
