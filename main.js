@@ -278,7 +278,7 @@ function submenuAccesorios() {
             if (isNaN(cantidad) || cantidad <= 0) {
                 alert("Cantidad no válida. Debe ser un número mayor que 0.");
             } else {
-                seleccionarTalla(articulo.talleProducto[0], articulo.id); // Talla única para accesorios
+                seleccionarTalla(articulo.talleProducto[0], articulo.id);
             }
         } else if (opcion === '17') {
             alert("Volviendo al menú principal.");
