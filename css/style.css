@@ -39,7 +39,7 @@ body {
 }
 
 .articulo img:hover {
-    transform: scale(1.2); 
+    transform: scale(1.5); 
 }
 
 .articulo button {
@@ -92,9 +92,9 @@ body {
 
 .button-container {
     display: flex;
-    gap: 10px; /* Espacio entre los botones */
-    justify-content: center; /* Centrar los botones horizontalmente */
-    margin-top: 20px; /* Espacio superior */
+    gap: 10px; 
+    justify-content: center; 
+    margin-top: 20px; 
 }
 
 .button-container button {
@@ -109,7 +109,7 @@ body {
 }
 
 .button-container button:hover {
-    background-color: #5a0a91; /* Color de fondo al pasar el mouse */
+    background-color: #5a0a91; 
 }
 .search-container {
     text-align: center; 
@@ -162,24 +162,24 @@ header {
 }
 
 .search-container input[type="text"] {
-    padding: 5px; /* Reducido padding para hacer el campo de texto más pequeño */
-    width: 200px; /* Reducido ancho del campo de texto */
+    padding: 5px;
+    width: 200px; 
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
 .search-container button {
-    padding: 5px 10px; /* Reducido padding para hacer el botón más pequeño */
+    padding: 5px 10px; 
     border: none;
     background-color: #6c0ea6;
     color: white;
-    font-size: 14px; /* Tamaño de fuente más pequeño */
+    font-size: 14px; 
     border-radius: 5px;
     cursor: pointer;
 }
 
 .search-container button:hover {
-    background-color: #5a0a91; /* Color de fondo en hover para mayor contraste */
+    background-color: #5a0a91; 
 }
 
 .logo {

@@ -27,25 +27,24 @@ const articulos = [
     new Articulo(6, 'Remera Some Love', 45000, ['S', 'M', 'L', 'XL', 'XXL'], './assets/reme-some-love.webp'),
     new Articulo(7, 'Remera Oval', 45000, ['S', 'M', 'L', 'XL', 'XXL'], './assets/reme-oval.webp'),
     new Articulo(8, 'Remera Fire', 45000, ['S', 'M', 'L', 'XL', 'XXL'], './assets/reme-fire.webp'),
-    new Articulo(9, 'Buzo Incoherent', 45000, ['S', 'M', 'L', 'XL', 'XXL'], './assets/buzo-incoherent.webp'),
-    new Articulo(10, 'Buzo Some Love', 45000, ['S', 'M', 'L', 'XL', 'XXL'], './assets/buzo-some-love.webp'),
-    new Articulo(11, 'Buzo Some Luck', 45000, ['S', 'M', 'L', 'XL', 'XXL'], './assets/buzo-some-luck.webp'),
-    new Articulo(12, 'Buzo Star', 45000, ['S', 'M', 'L', 'XL', 'XXL'], './assets/buzo-star.webp'),
-    new Articulo(13, 'Balaclava Rayden', 15000, ['Único'], './assets/bala-rayden.webp'),
-    new Articulo(14, 'Balaclava Spider', 15000, ['Único'], './assets/bala-spider.webp'),
-    new Articulo(15, 'Medias Puas', 8000, ['Único'], './assets/medias-puas.webp'),
-    new Articulo(16, 'Medias Shine', 8000, ['Único'], './assets/medias-shine.webp'),
+    new Articulo(10, 'Buzo Incoherent', 45000, ['S', 'M', 'L', 'XL', 'XXL'], './assets/buzo-incoherent.webp'),
+    new Articulo(11, 'Buzo Some Love', 45000, ['S', 'M', 'L', 'XL', 'XXL'], './assets/buzo-some-love.webp'),
+    new Articulo(12, 'Buzo Some Luck', 45000, ['S', 'M', 'L', 'XL', 'XXL'], './assets/buzo-some-luck.webp'),
+    new Articulo(13, 'Buzo Star', 45000, ['S', 'M', 'L', 'XL', 'XXL'], './assets/buzo-star.webp'),
+    new Articulo(15, 'Balaclava Rayden', 15000, ['Único'], './assets/bala-rayden.webp'),
+    new Articulo(16, 'Balaclava Spider', 15000, ['Único'], './assets/bala-spider.webp'),
+    new Articulo(17, 'Medias Puas', 8000, ['Único'], './assets/medias-puas.webp'),
+    new Articulo(18, 'Medias Shine', 8000, ['Único'], './assets/medias-shine.webp'),
 ];
 
 function mostrarArticulos() {
     const contenedor = document.getElementById('contenedor-articulos');
-    contenedor.innerHTML = ''; // Limpiar el contenedor antes de agregar nuevos artículos
+    contenedor.innerHTML = ''; 
     
     articulos.forEach(articulo => {
         const articuloDiv = document.createElement('div');
         articuloDiv.classList.add('articulo');
         
-        // Crear botones para las tallas
         const tallasDiv = document.createElement('div');
         tallasDiv.classList.add('tallas');
         articulo.talleProducto.forEach(talla => {
@@ -69,22 +68,51 @@ function mostrarArticulos() {
         contenedor.appendChild(articuloDiv);
     });
 }
+
 function buscarArticulos() {
     const input = document.getElementById('searchInput').value.toLowerCase();
     const articulosFiltrados = articulos.filter(articulo => 
-        articulo.nombre.toLowerCase().includes(input)
+        articulo.nombreProducto.toLowerCase().includes(input)
     );
-    mostrarArticulos(articulosFiltrados);
+    mostrarArticulosFiltrados(articulosFiltrados);
 }
 
-window.onload = function() {
-    mostrarArticulos(articulos);
+function mostrarArticulosFiltrados(articulosFiltrados) {
+    const contenedor = document.getElementById('contenedor-articulos');
+    contenedor.innerHTML = ''; 
+    
+    articulosFiltrados.forEach(articulo => {
+        const articuloDiv = document.createElement('div');
+        articuloDiv.classList.add('articulo');
+        
+        const tallasDiv = document.createElement('div');
+        tallasDiv.classList.add('tallas');
+        articulo.talleProducto.forEach(talla => {
+            const tallaBtn = document.createElement('button');
+            tallaBtn.textContent = talla;
+            tallaBtn.classList.add('talla-btn');
+            tallaBtn.onclick = () => {
+                seleccionarTalla(talla, articulo.id);
+            };
+            tallasDiv.appendChild(tallaBtn);
+        });
+        
+        articuloDiv.innerHTML = `
+            <img src="${articulo.imagenUrl}" alt="${articulo.nombreProducto}">
+            <h3>${articulo.nombreProducto}</h3>
+            <p>Precio: $${articulo.precioProducto}</p>
+        `;
+        
+        articuloDiv.appendChild(tallasDiv);
+        
+        contenedor.appendChild(articuloDiv);
+    });
 }
 
 function seleccionarTalla(talla, articuloId) {
     const articulo = articulos.find(a => a.id === articuloId);
     if (articulo) {
-        let cantidad = parseInt(prompt(`¿Cuántas unidades deseas de ${articulo.nombreProducto}?`), 10);
+        let cantidad = parseInt(prompt(`¿Cuántas unidades deseas de ${articulo.nombreProducto} (${talla})?`), 10);
         if (isNaN(cantidad) || cantidad <= 0) {
             alert("Cantidad no válida. Debes ingresar un número positivo.");
         } else {
@@ -178,8 +206,19 @@ function submenuRemeras() {
             "9. Volver al menú principal"
         );
 
-        if (opcion >= '1' && opcion <= '8') {
-            // Ya no es necesario, manejarse en `seleccionarTalla`
+        const articulo = articulos.find(a => a.id === parseInt(opcion));
+        if (articulo) {
+            const talla = prompt("Selecciona la talla: " + articulo.talleProducto.join(', '));
+            if (articulo.talleProducto.includes(talla)) {
+                const cantidad = parseInt(prompt("¿Cuántas unidades deseas agregar al carrito?"), 10);
+                if (isNaN(cantidad) || cantidad <= 0) {
+                    alert("Cantidad no válida. Debe ser un número mayor que 0.");
+                } else {
+                    seleccionarTalla(talla, articulo.id);
+                }
+            } else {
+                alert("Talla no válida. Por favor, elige una talla disponible.");
+            }
         } else if (opcion === '9') {
             alert("Volviendo al menú principal.");
         } else {
@@ -193,21 +232,32 @@ function submenuBuzos() {
     do {
         opcion = prompt(
             "Acá tenemos estas opciones para vos:\n" +
-            "9. Buzo Incoherent\n" +
-            "10. Buzo Some Love\n" +
-            "11. Buzo Some Luck\n" +
-            "12. Buzo Star\n" +
-            "13. Volver al menú principal"
+            "10'. Buzo Incoherent\n" +
+            "11. Buzo Some Love\n" +
+            "12. Buzo Some Luck\n" +
+            "13. Buzo Star\n" +
+            "14. Volver al menú principal"
         );
 
-        if (opcion >= '9' && opcion <= '12') {
-            // Ya no es necesario, manejarse en `seleccionarTalla`
+        const articulo = articulos.find(a => a.id === parseInt(opcion));
+        if (articulo) {
+            const talla = prompt("Selecciona la talla: " + articulo.talleProducto.join(', '));
+            if (articulo.talleProducto.includes(talla)) {
+                const cantidad = parseInt(prompt("¿Cuántas unidades deseas agregar al carrito?"), 10);
+                if (isNaN(cantidad) || cantidad <= 0) {
+                    alert("Cantidad no válida. Debe ser un número mayor que 0.");
+                } else {
+                    seleccionarTalla(talla, articulo.id);
+                }
+            } else {
+                alert("Talla no válida. Por favor, elige una talla disponible.");
+            }
         } else if (opcion === '13') {
             alert("Volviendo al menú principal.");
         } else {
-            alert("Opción no válida. Por favor, elige una opción entre 9 y 13.");
+            alert("Opción no válida. Por favor, elige una opción entre 10 y 14.");
         }
-    } while (opcion !== '13');
+    } while (opcion !== '14');
 }
 
 function submenuAccesorios() {
@@ -215,21 +265,27 @@ function submenuAccesorios() {
     do {
         opcion = prompt(
             "Acá tenemos estas opciones para vos:\n" +
-            "13. Balaclava Rayden\n" +
-            "14. Balaclava Spider\n" +
-            "15. Medias Puas\n" +
-            "16. Medias Shine\n" +
-            "17. Volver al menú principal"
+            "15. Balaclava Rayden\n" +
+            "16. Balaclava Spider\n" +
+            "17. Medias Puas\n" +
+            "18. Medias Shine\n" +
+            "19. Volver al menú principal"
         );
 
-        if (opcion >= '13' && opcion <= '16') {
-            // Ya no es necesario, manejarse en `seleccionarTalla`
+        const articulo = articulos.find(a => a.id === parseInt(opcion));
+        if (articulo) {
+            const cantidad = parseInt(prompt("¿Cuántas unidades deseas agregar al carrito?"), 10);
+            if (isNaN(cantidad) || cantidad <= 0) {
+                alert("Cantidad no válida. Debe ser un número mayor que 0.");
+            } else {
+                seleccionarTalla(articulo.talleProducto[0], articulo.id); // Talla única para accesorios
+            }
         } else if (opcion === '17') {
             alert("Volviendo al menú principal.");
         } else {
-            alert("Opción no válida. Por favor, elige una opción entre 13 y 17.");
+            alert("Opción no válida. Por favor, elige una opción entre 15 y 19.");
         }
-    } while (opcion !== '17');
+    } while (opcion !== '19');
 }
 
 function submenuMediosDePago() {
