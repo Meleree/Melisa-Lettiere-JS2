@@ -252,7 +252,7 @@ function submenuBuzos() {
             } else {
                 alert("Talla no válida. Por favor, elige una talla disponible.");
             }
-        } else if (opcion === '13') {
+        } else if (opcion === '14') {
             alert("Volviendo al menú principal.");
         } else {
             alert("Opción no válida. Por favor, elige una opción entre 10 y 14.");
@@ -280,7 +280,7 @@ function submenuAccesorios() {
             } else {
                 seleccionarTalla(articulo.talleProducto[0], articulo.id);
             }
-        } else if (opcion === '17') {
+        } else if (opcion === '19') {
             alert("Volviendo al menú principal.");
         } else {
             alert("Opción no válida. Por favor, elige una opción entre 15 y 19.");
