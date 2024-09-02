@@ -1,13 +1,136 @@
-style {
-    @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap');
-}
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap');
 
 body {
     background-color: #1c1c1c;
     text-align: center;
+    margin: 0;
+    padding: 0;
+    font-family: "Libre Franklin", sans-serif;
+}
+
+header {
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-container input[type="text"] {
+    padding: 5px;
+    width: 6.25rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-container button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #6c0ea6;
+    color: white;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-container button:hover {
+    background-color: #5a0a91;
+}
+
+.logo {
+    margin: 2rem auto 0; 
+}
+
+.cart-container {
+    margin-top: 4rem;
+}
+
+.cart-container img {
+    vertical-align: middle;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#loginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-group {
+    margin-top: 2rem;
+    display: flex;
+    gap: 10px;
     align-items: center;
 }
+
+input {
+    padding: 10px;
+    border: 1px solid #1c1c1c;
+    border-radius: 5px;
+    flex: 1;
+}
+
+button {
+    padding: 10px;
+    background-color: #5a0a91;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #6c0ea6;
+}
+
+#message {
+    color: red;
+}
+
+.sesion {
+    margin-top: 2rem;
+    color: #d9d9d9;
+    font-size: 1rem;
+}
+
+.button-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.button-container button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #6c0ea6;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+}
+
+.button-container button:hover {
+    background-color: #5a0a91;
+}
+
 #contenedor-articulos {
+    margin-top: 2rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -16,7 +139,6 @@ body {
     border: 1px solid #ddd;
     color: #d9d9d9;
     border-radius: 10px;
-    font-family: "LibreFranklin", sans-serif;
 }
 
 .articulo {
@@ -29,185 +151,60 @@ body {
     background-color: #1c1c1c;
     color: #d9d9d9;
     text-align: center;
-    font-family: "LibreFranklin", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .articulo img {
-    max-width: 300px; 
+    max-width: 200px;
     height: auto;
-    transition: transform 0.3s ease; 
+    transition: transform 0.3s ease;
 }
 
 .articulo img:hover {
-    transform: scale(1.5); 
+    transform: scale(1.5);
 }
 
 .articulo button {
     background-color: #d9d9d9;
     color: #1c1c1c;
     border: none;
-    padding: 5px 10px; 
+    padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 14px;
 }
 
 .articulo button:hover {
-    background-color: #ccc; 
-}
-
-.articulo {
-    margin-bottom: 20px; 
-
-}
-.articulo img { 
-    max-width: 200px; 
-}
-
-.tallas {
-    margin-top: 10px;
-}
-
-.talla-btn {
-    background-color: #6c0ea6;
-    color: #d9d9d9;
-    border: none;
-    padding: 5px 10px; 
-    margin: 2px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 12px; 
-}
-
-.talla-btn:hover {
-    background-color: #6c0ea6; 
-}
-
-#ver-carrito-btn {
-    margin: 10px;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-}
-
-.button-container {
-    display: flex;
-    gap: 10px; 
-    justify-content: center; 
-    margin-top: 20px; 
-}
-
-.button-container button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #6c0ea6;
-    color: white;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.button-container button:hover {
-    background-color: #5a0a91; 
-}
-.search-container {
-    text-align: center; 
-    margin-top: 20px; 
-}
-.search-container input[type="text"] {
-    padding: 10px;
-    width: 300px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-.search-container button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #6c0ea6;
-    color: white;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-left: 10px;
-}
-.search-container button:hover {
-    background-color: #6c0ea6;
-}
-.articulo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-}
-.articulo img {
-    max-width: 100px;
-    height: auto;
-}
-
-header {
-    padding: 10px 20px; 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative; 
-}
-
-.search-container {
-    position: absolute;
-    left: 20px; 
-    display: flex;
-    align-items: center;
-    gap: 10px; 
-}
-
-.search-container input[type="text"] {
-    padding: 5px;
-    width: 200px; 
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.search-container button {
-    padding: 5px 10px; 
-    border: none;
-    background-color: #6c0ea6;
-    color: white;
-    font-size: 14px; 
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.search-container button:hover {
-    background-color: #5a0a91; 
-}
-
-.logo {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.cart-container {
-    position: absolute;
-    right: 20px; 
-}
-
-.cart-container img {
-    vertical-align: middle;
+    background-color: #ccc;
 }
 
 .articulo .tallas .talla-btn {
-    background-color: #6c0ea6; 
-    color: white; 
+    background-color: #6c0ea6;
+    color: white;
     border: none;
     padding: 5px 10px;
     margin: 2px;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 12px; 
+    font-size: 12px;
 }
 
 .articulo .tallas .talla-btn:hover {
+    background-color: #5a0a91;
+}
+
+#finalizarCompraBtn {
     background-color: #5a0a91; 
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#finalizarCompraBtn:hover {
+    background-color: #6c0ea6; 
 }
